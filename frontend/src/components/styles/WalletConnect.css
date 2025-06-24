@@ -1,0 +1,35 @@
+/* WalletConnect.css */
+.wallet-connect-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+  }
+  
+  .connect-button {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .connect-button:hover {
+    background-color: #5a52e0;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .connect-button.connected {
+    background-color: #28a745;
+    cursor: default;
+  }
+  
+  .connect-button.connected:hover {
+    background-color: #28a745; /* No hover effect when connected */
+  }
+  

@@ -48,8 +48,8 @@ The NFT Image Generator is an innovative platform that simplifies NFT creation b
 
 1. **Clone the Repository**
    ```sh
-   git clone <your-repo-url>
-   cd NFT_rarity/NFT_rarity/NFT
+   git clone Rarity-AI
+   cd Rarity-AI
    ```
 
 2. **Start the Services**

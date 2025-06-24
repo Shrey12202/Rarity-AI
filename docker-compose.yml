@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  backend:
+    image: shabadvw/rarity_backend:v1
+    ports:
+      - "5000:5000"
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+  frontend:
+    image: shabadvw/rarity_frontend:v1
+    ports:
+      - "3000:80"
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend 

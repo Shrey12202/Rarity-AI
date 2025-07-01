@@ -9,7 +9,7 @@ The NFT Image Generator is an innovative platform that simplifies NFT creation b
 
 ## Features
 - **AI-Powered Image Generation**: Users enter text prompts to generate unique images via the Gemini API.
-- **Prompt Engineering**: Grok API suggests refined prompts for enhanced image quality.
+- **Prompt Engineering**: Groq API suggests refined prompts for enhanced image quality.
 - **Rarity Index**: Each generated image is assigned a rarity score for NFT valuation.
 - **NFT Minting**: Selected images are minted as NFTs using the Supra SDK and stored in the Supra wallet.
 - **Custom Uploads**: Users can upload their own images to create NFTs.
@@ -27,7 +27,7 @@ The NFT Image Generator is an innovative platform that simplifies NFT creation b
   - Python: Core backend logic
   - Supra SDK: Blockchain integration for NFT minting and wallet operations
 - **APIs**:
-  - Grok API: Prompt engineering for refined user inputs
+  - Groq API: Prompt engineering for refined user inputs
   - Gemini API: High-quality image generation
   - Supra SDK: Smart contract deployment and NFT management
 - **Blockchain**: Supra blockchain for secure, low-fee transactions
@@ -40,7 +40,7 @@ The NFT Image Generator is an innovative platform that simplifies NFT creation b
 - Node.js (>=18.x)
 - Python (>=3.8)
 - Supra wallet account
-- API keys for Grok and Gemini APIs
+- API keys for Groq and Gemini APIs
 - Supra SDK credentials
 - **Docker** and **Docker Compose** installed on your system.
 
@@ -74,7 +74,7 @@ The NFT Image Generator is an innovative platform that simplifies NFT creation b
 
 ## Usage
 1. **Enter a Prompt**: Input a text prompt (e.g., "futuristic city").
-2. **Refine Prompt**: Select from AI-suggested prompts powered by Grok API.
+2. **Refine Prompt**: Select from AI-suggested prompts powered by Groq API.
 3. **Generate Images**: View AI-generated images (Gemini API) with rarity indices.
 4. **Mint NFT**: Choose an image, mint it as an NFT, and store it in your Supra wallet.
 5. **Additional Features**:

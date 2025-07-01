@@ -22,7 +22,7 @@ RUN apt-get update && \
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Expose backend port (adjust if needed)
-EXPOSE 5000
+EXPOSE 3002
 
 # Start the Node.js backend
 CMD ["npm", "start"] 

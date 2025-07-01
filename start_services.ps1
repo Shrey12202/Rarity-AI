@@ -17,27 +17,27 @@ function Test-Port {
 
 # Check if ports are available
 if (Test-Port 3000) {
-    Write-Host "⚠️  Port 3000 is already in use. Backend may already be running." -ForegroundColor Yellow
+    Write-Host "⚠️  Port 3000 is already in use. Frontend may already be running." -ForegroundColor Yellow
 }
 
 if (Test-Port 3002) {
-    Write-Host "⚠️  Port 3002 is already in use. Frontend may already be running." -ForegroundColor Yellow
+    Write-Host "⚠️  Port 3002 is already in use. Backend may already be running." -ForegroundColor Yellow
 }
 
 # Start Backend
 Write-Host "📡 Starting Backend Server..." -ForegroundColor Cyan
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd 'NFT/backend'; npm start" -WindowStyle Normal
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd 'backend'; npm start" -WindowStyle Normal
 
 # Wait a moment for backend to start
 Start-Sleep -Seconds 3
 
 # Start Frontend
 Write-Host "🎨 Starting Frontend Server..." -ForegroundColor Cyan
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd 'NFT/frontend'; npm start" -WindowStyle Normal
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd 'frontend'; npm start" -WindowStyle Normal
 
 Write-Host "✅ Services started!" -ForegroundColor Green
-Write-Host "🌐 Backend: http://localhost:3000" -ForegroundColor White
-Write-Host "🎨 Frontend: http://localhost:3002" -ForegroundColor White
+Write-Host "🌐 Backend: http://localhost:3002" -ForegroundColor White
+Write-Host "🎨 Frontend: http://localhost:3000" -ForegroundColor White
 Write-Host "📱 AI NFT Agent will be available in the frontend" -ForegroundColor White
 
 # Keep the script running

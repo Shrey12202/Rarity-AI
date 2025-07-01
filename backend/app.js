@@ -7,7 +7,7 @@ const nftRoutes = require('./src/routes/nftRoutes');
 const aiRoutes = require('./src/routes/aiRoutes');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 app.use(cors());
 
 app.use(bodyParser.json());

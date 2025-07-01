@@ -3,8 +3,10 @@ const fs = require('fs').promises;
 const path = require('path');
 
 // API Keys
-const GROQ_API_KEY = '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';
-const GEMINI_API_KEY = 'AIzaSyCVzPPvL9e9kLPmMqVGjOBt58WIUZzNPFU';
+// const GROQ_API_KEY = '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';
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+// const GEMINI_API_KEY = 'AIzaSyCVzPPvL9e9kLPmMqVGjOBt58WIUZzNPFU';
+const GEMINI_API_KEY = 'AIzaSyBRNgcEkvY2VpQ9V3uuHgMOAfqtiZyuTqQ';
 
 // Rarity index for NFT traits
 const rarityIndex = {

@@ -20,7 +20,7 @@ function TransferNFT({ walletAddress }) {
     setMessage('Transferring NFT, Please wait...');
 
     try {
-      const response = await axios.post('http://localhost:3000/api/transfer', {
+      const response = await axios.post('http://localhost:3002/api/transfer', {
         from: walletAddress,
         to,
         tokenId,

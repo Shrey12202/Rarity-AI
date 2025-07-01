@@ -15,7 +15,7 @@ const NFTGallery = ({ walletAddress }) => {
   const fetchNFTs = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3000/api/nfts');
+      const response = await axios.get('http://localhost:3002/api/nfts');
       setNfts(response.data);
     } catch (error) {
       console.error('Error fetching NFTs:', error);

@@ -33,7 +33,7 @@ const AINFTAgent = ({ walletAddress }) => {
 
   const generatePrompts = async () => {
     if (!userInput.trim()) {
-      addMessage('ai', '❌ Please share your idea first! I need something to work with.');
+      addMessage('ai', '❌ Please enter your idea first!');
       return;
     }
 
@@ -42,9 +42,12 @@ const AINFTAgent = ({ walletAddress }) => {
     addMessage('user', `💭 "${userInput}"`);
 
     try {
-      const response = await axios.post('http://localhost:3000/api/generate-prompts', {
+      console.log('Attempting to connect to backend at http://localhost:3002/api/generate-prompts');
+      const response = await axios.post('http://localhost:3002/api/generate-prompts', {
         userInput: userInput
       });
+
+      console.log('Backend response:', response.data);
 
       if (response.data.prompts && response.data.prompts.length > 0) {
         setGeneratedPrompts(response.data.prompts);
@@ -55,6 +58,13 @@ const AINFTAgent = ({ walletAddress }) => {
       }
     } catch (error) {
       console.error('Error generating prompts:', error);
+      console.error('Error details:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        statusText: error.response?.statusText
+      });
+      
       addMessage('ai', '❌ Oops! I had trouble generating prompts. Let me try a different approach...');
       
       // Fallback prompts
@@ -80,7 +90,7 @@ const AINFTAgent = ({ walletAddress }) => {
     addMessage('ai', '🎨 Amazing choice! I\'m now using Gemini AI to create your unique NFT. This might take a moment as I craft something special for you...');
 
     try {
-      const response = await axios.post('http://localhost:3000/api/generate-image', {
+      const response = await axios.post('http://localhost:3002/api/generate-image', {
         prompt: prompt
       }, {
         timeout: 60000 // 60 second timeout for image generation
@@ -132,7 +142,7 @@ const AINFTAgent = ({ walletAddress }) => {
     addMessage('ai', '🤖 Let me craft a perfect name and description for your NFT using Groq AI...');
     
     try {
-      const response = await axios.post('http://localhost:3000/api/generate-nft-details', {
+      const response = await axios.post('http://localhost:3002/api/generate-nft-details', {
         prompt: prompt,
         userInput: userInput
       });
@@ -167,7 +177,7 @@ const AINFTAgent = ({ walletAddress }) => {
     addMessage('ai', '🪙 Excellent! I\'m now minting your NFT to the blockchain. This is where the magic happens - your digital art becomes a real NFT!');
 
     try {
-      const response = await axios.post('http://localhost:3000/api/mint-ai-nft', {
+      const response = await axios.post('http://localhost:3002/api/mint-ai-nft', {
         name: nftName,
         description: nftDescription,
         imageUrl: generatedImage,

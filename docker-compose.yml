@@ -1,18 +1,39 @@
-version: '3.8'
 services:
   backend:
-    image: shabadvw/rarity_backend:v1
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
     ports:
-      - "5000:5000"
+      - "3002:3002"
     working_dir: /app
     environment:
       - NODE_ENV=development
+      - GROQ_API_KEY
+      - GEMINI_API_KEY=AIzaSyBRNgcEkvY2VpQ9V3uuHgMOAfqtiZyuTqQ
+      - PORT=3002
+    volumes:
+      - ./backend:/app
+      - backend_node_modules:/app/node_modules
+      - backend_python_cache:/opt/venv
+    command: npm start
   frontend:
-    image: shabadvw/rarity_frontend:v1
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     ports:
-      - "3000:80"
+      - "3000:3000"
     working_dir: /app
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
     depends_on:
-      - backend 
+      - backend
+    command: npm start
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
+  backend_python_cache: 

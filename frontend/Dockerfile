@@ -1,15 +1,14 @@
 # Use an official Node.js image as the base
-FROM node:20 as build
+FROM node:20
 
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-COPY . .
-RUN npm run build
 
-# Use a lightweight web server to serve the build
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"] 
+COPY . .
+
+EXPOSE 3000
+
+# Start the React development server
+CMD ["npm", "start"] 

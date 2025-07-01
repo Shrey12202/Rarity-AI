@@ -33,7 +33,7 @@ function MintNFT({ walletAddress }) {
       formData.append('image', image);
       formData.append('walletAddress', walletAddress);
 
-      const response = await axios.post('http://localhost:3000/api/mint', formData, {
+      const response = await axios.post('http://localhost:3002/api/mint', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       
